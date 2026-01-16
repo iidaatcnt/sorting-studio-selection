@@ -6,13 +6,15 @@ import {
   Play,
   Pause,
   RotateCcw,
+  Search,
+  Target,
   StepForward,
   StepBack,
   Github,
   Info,
   Code2,
   Zap,
-  Lightbulb
+  Lightbulb,
 } from 'lucide-react';
 
 // --- Types ---
@@ -181,10 +183,10 @@ export default function SelectionSortStudio() {
       <header className="border-b border-slate-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-600/20">
-              <Zap className="text-white w-5 h-5 fill-current" />
+            <div className="w-8 h-8 bg-rose-500 rounded-lg flex items-center justify-center shadow-lg shadow-rose-500/20">
+              <Target className="text-white w-5 h-5" />
             </div>
-            <h1 className="font-black italic tracking-tighter text-xl uppercase tracking-widest text-indigo-600">Selection_Sort_Studio</h1>
+            <h1 className="font-black italic tracking-tighter text-xl uppercase tracking-widest text-rose-600">選択ソート (Selection Sort)</h1>
           </div>
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-2 text-[10px] mono uppercase text-slate-400">
@@ -206,7 +208,7 @@ export default function SelectionSortStudio() {
 
           <div className="relative aspect-video lg:aspect-square max-h-[500px] bg-white rounded-3xl border border-slate-200 p-12 flex items-end justify-center gap-2 overflow-hidden group shadow-xl">
             <div className="absolute top-6 left-6 flex items-center gap-2 mono text-[10px] text-slate-400 uppercase font-bold">
-              <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse" />
+              <div className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse" />
               選択ソート・シミュレーター
             </div>
 
@@ -218,11 +220,11 @@ export default function SelectionSortStudio() {
                 let colorClass = "bg-slate-100";
 
                 if (isSelected) {
-                  if (step.type === 'compare') colorClass = "bg-indigo-400 shadow-[0_0_20px_rgba(129,140,248,0.3)]";
+                  if (step.type === 'compare') colorClass = "bg-rose-400 shadow-[0_0_20px_rgba(251,113,133,0.3)]";
                   if (step.type === 'swap') colorClass = "bg-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]";
                   if (step.type === 'sorted') colorClass = "bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]";
-                  if (step.type === 'find_min') colorClass = "bg-indigo-400 shadow-[0_0_20px_rgba(129,140,248,0.4)]";
-                  if (step.type === 'complete') colorClass = "bg-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)]";
+                  if (step.type === 'find_min') colorClass = "bg-rose-400 shadow-[0_0_20px_rgba(251,113,133,0.4)]";
+                  if (step.type === 'complete') colorClass = "bg-rose-600 shadow-[0_0_20px_rgba(225,29,72,0.3)]";
                 }
 
                 if (isMin && step.type !== 'complete') {
@@ -239,7 +241,7 @@ export default function SelectionSortStudio() {
                     style={{ height: `${val}%` }}
                     className={`flex-1 min-w-[30px] rounded-t-lg relative ${colorClass} transition-colors duration-200`}
                   >
-                    <div className={`absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-bold ${isSelected || isMin ? 'text-indigo-600' : 'text-slate-400'}`}>
+                    <div className={`absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-bold ${isSelected || isMin ? 'text-rose-600' : 'text-slate-400'}`}>
                       {val}
                     </div>
                     {isMin && step.type !== 'complete' && (
